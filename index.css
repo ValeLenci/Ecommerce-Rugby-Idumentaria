@@ -1,0 +1,26 @@
+#container-products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin:auto;
+}
+
+.card-clothes {
+    max-width: 250px;
+    text-align: center;
+    background-color: var(--color-tarjetas);
+    padding: 10px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+    transition: 200ms;
+}
+
+.card-clothes:hover {
+    translate: 0 -10px;
+    box-shadow: 0 10px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.card-clothes img {
+    width: 100%;
+}

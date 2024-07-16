@@ -1,0 +1,91 @@
+/* Estilos Navbar */
+:root {
+    --color-acento: #ff0000;
+    --color-acento-claro: #ffc400;
+    --color-texto: black;
+    --color-tarjetas: #0077ff73;
+    --color-boton: #0011ff;
+}
+
+body {
+    font-family: "Bebas Neue", sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    height: 100vh;
+}
+
+header {
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.137);
+    padding: 10px 0;
+    margin-bottom: 30px;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 60px;
+}
+
+header nav img {
+    height: 25px;
+}
+
+header nav div {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-texto);
+}
+ 
+a:hover:not(#cart) {
+    color: var(--color-acento);
+}
+
+#logo {
+    height: 90px;
+}
+
+#cuenta_carrito {
+    background-color: var(--color-tarjetas);
+    border-radius: 100%;
+    display: inline-block;
+    width: 20px;
+    line-height: 20px;
+    aspect-ratio: 1;
+    text-align: center;
+    position: absolute;
+}
+
+/* Estilos Main */
+
+h3, p {
+    margin: 6px 0;
+}
+
+button {
+  background-color: var(--color-boton);
+  color: white;
+  border: unset;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Estilos Footer */
+
+footer {
+    box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.137);
+    text-align: center;
+    margin-top: auto;
+}
+
+
+
+
+
+
