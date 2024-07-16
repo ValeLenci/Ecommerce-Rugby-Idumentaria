@@ -1,0 +1,22 @@
+#container-products {
+    width: 500px;
+    margin: auto;
+}
+
+.card-clothes {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.card-clothes img {
+    height: 90px;
+}
+
+.card-clothes h3 {
+    width: 130px;
+}
+
+#totals {
+    text-align: center;
+}
