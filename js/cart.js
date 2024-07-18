@@ -1,7 +1,8 @@
 const cardContainer = document.getElementById("container-products")
-
+   
 function createProductsCards() {
-    const clothings = JSON.parse(localStorage.getItem("clothes"))
+  cardContainer.innerHTML = "";
+  const clothings = JSON.parse(localStorage.getItem("clothes"))
     if (clothings && clothings.length > 0) {
      clothings.forEach(clothing => {
         const newClothe = document.createElement("div");
@@ -17,9 +18,24 @@ function createProductsCards() {
           </div>
         `;
         cardContainer.appendChild(newClothe);
-        newClothe.getElementsByTagName("button")[0].addEventListener("click",()=> addToCart(clothing))
+        newClothe
+          .getElementsByTagName("button")[1]
+          .addEventListener("click",(e)=> {
+            addToCart(clothing);
+            const cuentaElement = e.target.parentElement.getElementsByTagName("span")[0];
+            cuentaElement.innerText = addToCart(clothing);
+          })
+          
+          newClothe
+           .getElementsByTagName("button")[0]
+           .addEventListener("click",(e)=> { 
+            restToCart(clothing)
+          
+          createProductsCards ()
+        })
      });
+     
     }
 }
 
-createProductsCards (clothings)
+createProductsCards ()

@@ -12,11 +12,23 @@ function addToCart(clothing) {
       } else {
           NewMemory[indexMemory].cantidad ++;
       }
-      localStorage.setItem("clothes", JSON.stringify(NewMemory))
+      localStorage.setItem("clothes", JSON.stringify(NewMemory));
    }
    
    updateNumberCart()
 } 
+
+function restToCart(clothing) {
+    const memory = JSON.parse(localStorage.getItem ("clothes"))
+    const indexMemory = memory.findIndex(clothes => clothes.id === clothing.id)
+    if(memory[indexMemory].cantidad === 1){
+        memory.splice(indexMemory, 1)
+    } else {
+        memory[indexMemory].cantidad--;
+    }
+    
+    localStorage.setItem("clothes", JSON.stringify(memory))
+}
 
 function getNewProductForMemory (clothing) {
     const NuevaClothe = clothing;
