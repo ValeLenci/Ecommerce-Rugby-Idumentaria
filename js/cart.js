@@ -13,7 +13,7 @@ function createProductsCards() {
           <p>$${clothing.price}</p>
           <div>
             <button>-</button>
-            <span class="cantidad">0</span>
+            <span class="cantidad">${clothing.cantidad}</span>
             <button>+</button>
           </div>
         `;
@@ -21,21 +21,17 @@ function createProductsCards() {
         newClothe
           .getElementsByTagName("button")[1]
           .addEventListener("click",(e)=> {
-            addToCart(clothing);
             const cuentaElement = e.target.parentElement.getElementsByTagName("span")[0];
             cuentaElement.innerText = addToCart(clothing);
-          })
-          
-          newClothe
-           .getElementsByTagName("button")[0]
-           .addEventListener("click",(e)=> { 
-            restToCart(clothing)
-          
-          createProductsCards ()
-        })
+          });
+        newClothe
+          .getElementsByTagName("button")[0]
+          .addEventListener("click",(e)=> {
+            subtractToCart(clothing);
+            createProductsCards()
+          });
      });
-     
     }
 }
 
-createProductsCards ()
+createProductsCards()

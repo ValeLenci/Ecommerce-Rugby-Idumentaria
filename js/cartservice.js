@@ -1,47 +1,46 @@
 function addToCart(clothing) {
-   const memory = JSON.parse(localStorage.getItem ("clothes"))
-   console.log(memory)
-   if(!memory) {
-       const NuevaClothe = getNewProductForMemory(clothing);
-       localStorage.setItem("clothes", JSON.stringify([NuevaClothe]))
-   } else {
-      const indexMemory = memory.findIndex(clothes => clothes.id === clothing.id)
-      const NewMemory = memory;
-      if (indexMemory === -1){
-          NewMemory.push(getNewProductForMemory(clothing))
-      } else {
-          NewMemory[indexMemory].cantidad ++;
-      }
-      localStorage.setItem("clothes", JSON.stringify(NewMemory));
-   }
-   
-   updateNumberCart()
-} 
+  const memory = JSON.parse(localStorage.getItem("clothes")) || [];
+  let cuenta = 0;
 
-function restToCart(clothing) {
-    const memory = JSON.parse(localStorage.getItem ("clothes"))
-    const indexMemory = memory.findIndex(clothes => clothes.id === clothing.id)
-    if(memory[indexMemory].cantidad === 1){
-        memory.splice(indexMemory, 1)
-    } else {
-        memory[indexMemory].cantidad--;
-    }
-    
-    localStorage.setItem("clothes", JSON.stringify(memory))
+  const indexMemory = memory.findIndex(clothes => clothes.id === clothing.id);
+  if (indexMemory === -1) {
+    const NuevaClothe = getNewProductForMemory(clothing);
+    memory.push(NuevaClothe);
+    cuenta = 1;
+  } else {
+    memory[indexMemory].cantidad++;
+    cuenta = memory[indexMemory].cantidad;
+  }
+
+  localStorage.setItem("clothes", JSON.stringify(memory));
+  updateNumberCart();
+  return cuenta;
 }
 
-function getNewProductForMemory (clothing) {
-    const NuevaClothe = clothing;
-    NuevaClothe.cantidad = 1;
-    return NuevaClothe;
+function subtractToCart(clothing) {
+  const memory = JSON.parse(localStorage.getItem("clothes"));
+  const indexMemory = memory.findIndex(clothes => clothes.id === clothing.id);
+  if (memory[indexMemory].cantidad === 1) {
+    memory.splice(indexMemory, 1);
+  } else {
+    memory[indexMemory].cantidad--;
+  }
+  localStorage.setItem("clothes", JSON.stringify(memory));
+  updateNumberCart();
+  return memory[indexMemory] ? memory[indexMemory].cantidad : 0;
 }
 
-const cuentaCarritoElement = document.getElementById ("cuenta_carrito")
-
-function updateNumberCart (){
-    const memory = JSON.parse(localStorage.getItem ("clothes"))
-    const account = memory.reduce((acum, current) => acum+current.cantidad, 0)
-    cuentaCarritoElement.innerText = account;
+function getNewProductForMemory(clothing) {
+  const NuevaClothe = { ...clothing, cantidad: 1 };
+  return NuevaClothe;
 }
 
-updateNumberCart ()
+const cuentaCarritoElement = document.getElementById("cuenta_carrito");
+
+function updateNumberCart() {
+  const memory = JSON.parse(localStorage.getItem("clothes")) || [];
+  const account = memory.reduce((acum, current) => acum + current.cantidad, 0);
+  cuentaCarritoElement.innerText = account;
+}
+
+updateNumberCart();
