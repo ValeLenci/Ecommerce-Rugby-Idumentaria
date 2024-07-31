@@ -39,8 +39,12 @@ const cuentaCarritoElement = document.getElementById("cuenta_carrito");
 
 function updateNumberCart() {
   const memory = JSON.parse(localStorage.getItem("clothes")) || [];
-  const account = memory.reduce((acum, current) => acum + current.cantidad, 0);
-  cuentaCarritoElement.innerText = account;
+  if(memory && memory.length>0){
+   const account = memory.reduce((acum, current) => acum + current.cantidad, 0);
+   cuentaCarritoElement.innerText = account;
+  } else {
+    cuentaCarritoElement.innerText = 0;
+  }
 }
 
 updateNumberCart();
