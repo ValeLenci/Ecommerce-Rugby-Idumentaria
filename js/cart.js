@@ -2,6 +2,7 @@ const cardContainer = document.getElementById("container-products");
 const unidadesElement = document.getElementById("unidades");
 const precioElement = document.getElementById("precios");
 const reiniciarCarritoElement = document.getElementById("reiniciar");
+const comprarArticulosElement =  document.getElementById ("comprar")
 
 function createProductsCards() {
   cardContainer.innerHTML = "";
@@ -69,7 +70,8 @@ function actualizarTotales() {
   precioElement.innerText = precio; 
 }
 
-reiniciarCarritoElement.addEventListener("click",reiniciarCarrito)
+reiniciarCarritoElement.addEventListener("click",reiniciarCarrito);
+
 function reiniciarCarrito() {
   localStorage.removeItem("clothes");
   actualizarTotales();
@@ -77,3 +79,10 @@ function reiniciarCarrito() {
   updateNumberCart();
   alert ("Su Carrito fue reiniciado!")
 }
+
+comprarArticulosElement.addEventListener("click",alertaCompra);
+
+function alertaCompra (){
+  alert ("Su Compra fue realizada!")
+}
+
