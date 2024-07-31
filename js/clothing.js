@@ -37,14 +37,27 @@ const clothings= [
     },
     {
         id: 7,
+        name: "REMERA HIMNO II LOS PUMAS",
+        price: 62000,
+        image: "https://lecoqsportif.com.ar/wp-content/uploads/2024/06/LTN0224109-1-1024x1024.jpg",
+    },
+    {
+        id: 8,
+        name: "REMERA HIMNO LOS PUMAS VIOLETA",
+        price: 62000,
+        image: "https://lecoqsportif.com.ar/wp-content/uploads/2024/06/LTN0224200-1-2-1024x1024.jpg",
+    },
+    {
+        id: 9,
         name: "SHORT LOS PUMAS HOME FAN",
         price: 69000,
         image: "https://lecoqsportif.com.ar/wp-content/uploads/2024/06/LTN0224096-1-1024x1024.jpg",
     },
     {
-        id: 8,
+        id: 10,
         name: "SHORT LOS PUMAS PRE MATCH",
         price: 69000,
         image: "https://lecoqsportif.com.ar/wp-content/uploads/2024/06/LTN0224118-1-1024x1024.jpg",
     },
 ]
+    
